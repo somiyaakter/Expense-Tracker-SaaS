@@ -5,6 +5,7 @@ import { client } from "@/lib/hono";
 
 
 type ResponseType = InferResponseType<typeof client.api.accounts.$post>
+
 type RequestType = InferRequestType<typeof client.api.accounts.$post>["json"];
 
 export const useCreateAccount = () => {
@@ -23,7 +24,8 @@ export const useCreateAccount = () => {
             toast.success("Account created");
             queryClient.invalidateQueries({ queryKey: ["accounts"] });
         },
-        onError: () => {
+        onError: (e) => {
+            console.log(e)
             toast.error("Failed to create account");
         },
     });

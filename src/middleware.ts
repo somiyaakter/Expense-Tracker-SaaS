@@ -20,10 +20,7 @@ export default function middleware(req: NextRequest) {
   const routeType = getRouteType(pathname);
 
   // ✅ Just check cookie existence
-  const sessionCookie =
-    req.cookies.get("better-auth.session") ||
-    req.cookies.get("__Secure-better-auth.session");
-
+  const sessionCookie = req.cookies.get("better-auth.session_token") 
   const isAuthenticated = Boolean(sessionCookie);
 
   if (routeType === "auth" && isAuthenticated) {
