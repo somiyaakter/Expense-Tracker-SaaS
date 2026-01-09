@@ -57,7 +57,7 @@ const pathname = usePathname();
     <Sidebar collapsible="icon" {...props}>
         <SidebarHeader>
             </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="px-3">
         
             <SidebarMenu>
               <SidebarMenuItem className="border-b pb-3">
@@ -71,16 +71,18 @@ const pathname = usePathname();
         
                   
                 </SidebarMenuItem>
-              {items.map((item) => (
+              {items.map((item) =>{
+                const isActive = pathname == item.url
+                return (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton  asChild isActive={pathname==item.url}>
+                  <SidebarMenuButton className={isActive? "bg-primary text-white":""} asChild  >
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
-              ))}
+              )})}
             </SidebarMenu>
           
       </SidebarContent>
