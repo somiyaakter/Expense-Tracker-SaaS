@@ -210,8 +210,10 @@ export default function HomePage() {
             </div>
 
             {/* Right Visual */}
-            <div className="rounded-2xl border border-border bg-secondary/30 aspect-square flex items-center justify-center">
-              <Lock className="w-20 h-20 text-muted-foreground/40" />
+            <div className="rounded-2xl aspect-square flex items-center justify-center">
+              {/* <Lock className="w-20 h-20 text-muted-foreground/40" /> */}
+
+              <Image src="/security.png" alt="security" height={800} width={800}/>
             </div>
           </div>
         </div>
@@ -259,10 +261,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-6 h-6 rounded-lg bg-primary flex items-center justify-center">
-                <Wallet className="w-4 h-4 text-primary-foreground" />
-              </div>
-              <span className="font-bold">ExpenseTracker</span>
+              <Link href="/">
+      <div className="items-center hidden lg:flex">
+        <Wallet className="fill-primary/60 text-primary h-6 w-6" />
+        <p className="font-semibold  text-primary text-2xl ml-2.5">Expensify</p>
+      </div>
+    </Link>
+            
             </div>
             <p className="text-sm text-muted-foreground">Smart expense tracking for modern finances.</p>
           </div>
