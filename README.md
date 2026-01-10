@@ -34,7 +34,7 @@ A modern, full-stack expense tracking application built with Next.js 14, featuri
 - Zod (Schema Validation)
 
 **Authentication & Security:**
-- NextAuth.js
+- BetterAuth.js
 - Session-based authentication
 - Input validation and sanitization
 
