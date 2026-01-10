@@ -4,6 +4,7 @@ import { ArrowRight, Wallet, Tags, TrendingDown, BarChart3, Lock } from "lucide-
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import UserButton from "@/components/user-button"
+import Image from "next/image"
 
 export default function HomePage() {
   return (
@@ -11,12 +12,13 @@ export default function HomePage() {
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 backdrop-blur-sm bg-background/95 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <Wallet className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className="text-xl font-bold text-balance">ExpenseTracker</span>
-          </div>
+         
+          <Link href="/">
+      <div className="items-center hidden lg:flex">
+        <Wallet className="fill-primary/60 text-primary h-6 w-6" />
+        <p className="font-semibold  text-primary text-2xl ml-2.5">Expensify</p>
+      </div>
+    </Link>
           <nav className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-sm hover:text-primary transition-colors">
               Features
@@ -69,11 +71,13 @@ export default function HomePage() {
 
           {/* Hero Visual - Dashboard Preview */}
           <div className="relative mt-16 rounded-2xl overflow-hidden border border-border bg-card">
-            <div className="aspect-video bg-gradient-to-br from-secondary to-muted flex items-center justify-center">
-              <div className="text-center">
-                <BarChart3 className="w-16 h-16 text-muted-foreground mx-auto mb-4 opacity-50" />
-                <p className="text-muted-foreground">Dashboard Preview</p>
-              </div>
+            <div className="aspect-video relative">
+               <Image 
+                 src="/dashboard.png" 
+                 alt="dashboard-preview" 
+                 fill
+                 className="object-cover"
+               />
             </div>
           </div>
         </div>
