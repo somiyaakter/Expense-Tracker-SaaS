@@ -138,5 +138,5 @@ npm run type-check   # TypeScript type checking
 
 **Your Name**
 - Portfolio: [Coming Soon](your-portfolio-url)
-- LinkedIn: [Coming Soon](your-linkedin-url)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/somiya-akter-rimo/)
 - Email: somiyaakterrimo2021@gmail.com
