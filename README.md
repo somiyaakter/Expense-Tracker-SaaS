@@ -137,6 +137,6 @@ npm run type-check   # TypeScript type checking
 ## 👨‍💻 Developer
 
 **Your Name**
-- Portfolio: [Coming Soon](your-portfolio-url)
+- Portfolio: [Portfolio](https://portfolio-57y0.onrender.com/)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/somiya-akter-rimo/)
 - Email: somiyaakterrimo2021@gmail.com
