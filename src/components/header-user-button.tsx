@@ -77,13 +77,13 @@ export function HeaderUserButton() {
           aria-label="Account menu"
           className="relative size-9 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent transition-transform hover:scale-105"
         >
-          <Avatar className="size-9 ring-2 ring-white/40 hover:ring-white transition-all shadow-md">
+          <Avatar className="size-9 ring-2 ring-white/70 hover:ring-white transition-all shadow-md">
             <AvatarImage src={user.image || ""} alt={user.name || ""} />
             <AvatarFallback className="bg-white text-primary text-sm font-semibold">
               {initials}
             </AvatarFallback>
           </Avatar>
-          <span className="absolute -bottom-0.5 -right-0.5 size-2.5 rounded-full bg-emerald-400 ring-2 ring-teal-800" />
+          <span className="absolute -bottom-0.5 -right-0.5 size-2.5 rounded-full bg-emerald-400 ring-2 ring-white" />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

@@ -291,7 +291,7 @@ export default function HomePage() {
                   src="/dboard.png"
                   alt="Dashboard preview"
                   fill
-                  className="object-contain "
+                  className="object-cover"
                   priority
                 />
               </div>
@@ -457,10 +457,10 @@ export default function HomePage() {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-primary via-teal-800 to-emerald-900">
         <div
           aria-hidden
-          className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_left,white,transparent_50%)] pointer-events-none"
+          className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_left,white,transparent_50%)]"
         />
         <div className="relative max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { k: "50K+", v: "Active users" },
               { k: "$500M+", v: "Tracked" },
@@ -468,10 +468,10 @@ export default function HomePage() {
               { k: "99.99%", v: "Uptime" },
             ].map((s) => (
               <div key={s.v}>
-                <div className="text-4xl sm:text-5xl font-semibold tracking-tight mb-1">
+                <div className="text-4xl sm:text-5xl font-semibold tracking-tight mb-1 text-white">
                   {s.k}
                 </div>
-                <p className="text-white/70 text-sm uppercase tracking-wider">
+                <p className="text-sm uppercase tracking-wider text-white/80">
                   {s.v}
                 </p>
               </div>
