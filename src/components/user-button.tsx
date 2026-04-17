@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
 import {
   LayoutDashboard,
   Settings,
@@ -24,9 +26,19 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function UserButton() {
   const { data: session, isPending } = useSession();
+  const router = useRouter();
+  const queryClient = useQueryClient();
 
   const handleSignOut = async () => {
-    await authClient.signOut();
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          queryClient.clear();
+          router.push("/sign-in");
+          router.refresh();
+        },
+      },
+    });
   };
 
   if (isPending) {

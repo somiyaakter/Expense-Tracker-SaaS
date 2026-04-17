@@ -7,10 +7,8 @@ import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
 import { useGetSummary } from "../../features/summary/api/use-get-summary";
 import { DataCard, DataCardLoading } from "./data-card";
 
-
-
 export const DataGrid = () => {
-  const { data,isLoading } = useGetSummary();
+  const { data, isLoading } = useGetSummary();
 
   const params = useSearchParams();
   const to = params.get("to") || undefined;
@@ -18,24 +16,24 @@ export const DataGrid = () => {
 
   const dateRangeLabel = formatDatRange({ to, from });
 
-    if(isLoading){
-      return (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-2 mb-8">
-              <DataCardLoading />
-              <DataCardLoading />
-              <DataCardLoading />
-        </div>
-      );
-    }
-    
-    
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+        <DataCardLoading />
+        <DataCardLoading />
+        <DataCardLoading />
+      </div>
+    );
+  }
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-2 mb-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
       <DataCard
         title="Remaining"
         value={data?.remainingAmount}
         percentageChange={data?.remainingChange}
         icon={FaPiggyBank}
+        variant="default"
         dateRange={dateRangeLabel}
       />
       <DataCard
@@ -43,6 +41,7 @@ export const DataGrid = () => {
         value={data?.incomeAmount}
         percentageChange={data?.incomeChange}
         icon={FaArrowTrendUp}
+        variant="success"
         dateRange={dateRangeLabel}
       />
       <DataCard
@@ -50,6 +49,7 @@ export const DataGrid = () => {
         value={data?.expensesAmount}
         percentageChange={data?.expensesChange}
         icon={FaArrowTrendDown}
+        variant="danger"
         dateRange={dateRangeLabel}
       />
     </div>

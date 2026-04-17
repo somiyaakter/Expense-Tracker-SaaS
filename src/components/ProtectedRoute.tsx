@@ -1,7 +1,8 @@
 "use client";
 
 import { useSession } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
+import { Loader2 } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 interface ProtectedRouteProps {
@@ -15,19 +16,24 @@ export function ProtectedRoute({
 }: ProtectedRouteProps) {
   const { data: session, isPending } = useSession();
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!isPending && !session) {
-      router.push(redirectTo);
+      const url = `${redirectTo}?callbackUrl=${encodeURIComponent(pathname)}`;
+      router.replace(url);
     }
-  }, [session, isPending, router, redirectTo]);
+  }, [session, isPending, router, redirectTo, pathname]);
 
-  if (isPending) {
-    return <div>Loading...</div>; // Or your loading component
-  }
-
-  if (!session) {
-    return null; // Component will redirect
+  if (isPending || !session) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="flex flex-col items-center gap-3">
+          <Loader2 className="size-8 animate-spin text-primary" />
+          <p className="text-sm text-muted-foreground">Loading your workspace...</p>
+        </div>
+      </div>
+    );
   }
 
   return <>{children}</>;
