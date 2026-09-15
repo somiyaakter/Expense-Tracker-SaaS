@@ -7,7 +7,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  serverExternalPackages: ["@prisma/client", ".prisma/client", "prisma"],
+  outputFileTracingIncludes: {
+    "/**/*": ["./src/generated/prisma/**/*"],
+  },
 };
 
 export default nextConfig;
